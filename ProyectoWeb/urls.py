@@ -15,6 +15,9 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path, include
+from django.conf import settings
+from django.config.urls.static import static
+
 
 
 urlpatterns = [
@@ -25,4 +28,4 @@ urlpatterns = [
     path('blog/', include('blog.urls')),
     path('contacto/', include('contacto.urls')),
     path('tienda/', include('tienda.urls')),
-]
+] +static(settings.STATIC_URL, document_root= settings.STATIC_ROOT)
